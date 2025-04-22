@@ -10,6 +10,11 @@ using System.Windows.Forms;
 using Zen.Barcode;
 using System.Drawing.Imaging;
 using System.IO;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using OwlTechScheduler.WinForms.Models;
+using OwlTechScheduler.WinForms.Schedulers;
 
 namespace OwlTechScheduler.WinForms.Schedulers
 {
@@ -42,6 +47,60 @@ namespace OwlTechScheduler.WinForms.Schedulers
             //this.btnProductCode.BackColor = Color.Transparent;         
             //this.btnDashBoard.BackColor = Color.Transparent;
             //this.btnCpuScheduler.BackColor = Color.DimGray;
+        }
+        private List<Process> GenerateSampleProcesses(int count)
+        {
+            var list = new List<Process>();
+            var rand = new Random();
+
+            for (int i = 0; i < count; i++)
+            {
+                list.Add(new Process
+                {
+                    Id = i + 1,
+                    ArrivalTime = rand.Next(0, 5),
+                    BurstTime = rand.Next(2, 10),
+                    Priority = rand.Next(1, 5)
+                });
+            }
+
+            return list;
+        }
+
+        private void btnSRTF_Click(object sender, EventArgs e)
+        {
+            if (txtProcess.Text != "")
+            {
+                int count;
+                if (int.TryParse(txtProcess.Text, out count))
+                {
+                    var processes = GenerateSampleProcesses(count);
+                    var result = SrtfScheduler.Run(processes);
+                    DisplayResults(result);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid number.");
+                }
+            }
+        }
+
+        private void btnMLFQ_Click(object sender, EventArgs e)
+        {
+            if (txtProcess.Text != "")
+            {
+                int count;
+                if (int.TryParse(txtProcess.Text, out count))
+                {
+                    var processes = GenerateSampleProcesses(count);
+                    var result = MlfqScheduler.Run(processes);
+                    DisplayResults(result);
+                }
+                else
+                {
+                    MessageBox.Show("Please enter a valid number.");
+                }
+            }
         }
 
 
@@ -359,5 +418,36 @@ namespace OwlTechScheduler.WinForms.Schedulers
         {
             this.txtCodeInput.Clear();
         }
+        
+        private void DisplayResults(List<Process> processes)
+        {
+            lvResults.Clear(); // This removes all previous columns AND items
+            lvResults.View = View.Details;
+            lvResults.GridLines = true;
+            lvResults.FullRowSelect = true;
+
+            // Re-add columns every time
+            lvResults.Columns.Add("PID", 50);
+            lvResults.Columns.Add("Arrival", 60);
+            lvResults.Columns.Add("Burst", 60);
+            lvResults.Columns.Add("Start", 60);
+            lvResults.Columns.Add("Complete", 80);
+            lvResults.Columns.Add("Waiting", 60);
+            lvResults.Columns.Add("Turnaround", 80);
+
+            foreach (var p in processes.OrderBy(p => p.Id))
+            {
+                var row = new ListViewItem(p.Id.ToString());
+                row.SubItems.Add(p.ArrivalTime.ToString());
+                row.SubItems.Add(p.BurstTime.ToString());
+                row.SubItems.Add(p.StartTime.ToString());
+                row.SubItems.Add(p.CompletionTime.ToString());
+                row.SubItems.Add(p.WaitingTime.ToString());
+                row.SubItems.Add(p.TurnaroundTime.ToString());
+
+                lvResults.Items.Add(row);
+            }
+        }
+
     }
 }

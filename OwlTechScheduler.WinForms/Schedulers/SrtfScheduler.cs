@@ -7,7 +7,7 @@ namespace OwlTechScheduler.WinForms.Schedulers
 {
     public static class SrtfScheduler
     {
-        public static void Run(List<Process> original)
+        public static List<Process> Run(List<Process> original)
         {
             var processes = original.Select(p => p.Clone()).ToList();
             foreach (var p in processes)
@@ -43,6 +43,7 @@ namespace OwlTechScheduler.WinForms.Schedulers
             }
 
             PrintResults(processes, "SRTF");
+            return processes;
         }
 
         private static void PrintResults(List<Process> processes, string label)
@@ -60,5 +61,6 @@ namespace OwlTechScheduler.WinForms.Schedulers
             Console.WriteLine($"\nAverage Waiting Time: {totalWT / processes.Count:F2}");
             Console.WriteLine($"Average Turnaround Time: {totalTAT / processes.Count:F2}");
         }
+        
     }
 }

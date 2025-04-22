@@ -7,7 +7,7 @@ namespace OwlTechScheduler.WinForms.Schedulers
 {
     public static class MlfqScheduler
     {
-        public static void Run(List<Process> original)
+        public static List<Process> Run(List<Process> original)
         {
             var processes = original.Select(p => p.Clone()).ToList();
             foreach (var p in processes)
@@ -33,6 +33,7 @@ namespace OwlTechScheduler.WinForms.Schedulers
             }
 
             PrintResults(processes, "MLFQ");
+            return processes;
         }
 
         private static bool RunQueue(Queue<Process> queue, int quantum, ref int time, ref int completed, List<Process> all)
