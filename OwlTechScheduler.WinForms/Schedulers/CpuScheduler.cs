@@ -52,14 +52,15 @@ namespace OwlTechScheduler.WinForms.Schedulers
         {
             var list = new List<Process>();
             var rand = new Random();
-
+            int currentTime = 0;
             for (int i = 0; i < count; i++)
             {
+                currentTime += rand.Next(1, 5); // add spacing/gaps
                 list.Add(new Process
                 {
                     Id = i + 1,
-                    ArrivalTime = rand.Next(0, 5),
-                    BurstTime = rand.Next(2, 10),
+                    ArrivalTime = currentTime,
+                    BurstTime = rand.Next(2, 6),
                     Priority = rand.Next(1, 5)
                 });
             }
@@ -445,7 +446,7 @@ namespace OwlTechScheduler.WinForms.Schedulers
 
             double totalWT = 0;
             double totalTAT = 0;
-            int firstArrival = processes.Min(p => p.ArrivalTime); // might be 0
+            int firstArrival = processes.Min(p => p.ArrivalTime);
             int lastCompletion = processes.Max(p => p.CompletionTime);
             int totalTime = lastCompletion - firstArrival;
             int totalProcesses = processes.Count;
@@ -470,7 +471,7 @@ namespace OwlTechScheduler.WinForms.Schedulers
             double avgTAT = totalTAT / totalProcesses;
             double throughput = (double)totalProcesses / totalTime;
             double totalBurstTime = processes.Sum(p => p.BurstTime);
-            double cpuUtilization = (totalBurstTime / totalTime) * 100;
+            double cpuUtilization = (processes.Sum(p => p.BurstTime) / (double)totalTime) * 100;
             
             
 
