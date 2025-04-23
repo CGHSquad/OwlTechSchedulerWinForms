@@ -579,6 +579,20 @@
         glKDNJh4AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnAdvancedScheduler.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAHmSURBVEhLtZS7UcNAEIYVOKMARxTgDhySMeNxpgIcO2NcgWOHZI4pgALIKYKYAkgdwf+d7pdX
+        x2kkhvHOfD7da3dvH24en7Y3pboIknuxZqztz6W6CJKTuIhjbX8u14+macVD/r4TL+JbnJnn9Q34zhy6
+        HykWX+JDHMVbnmOAkTnrn5l1qWiM7qeLN0pQOMWrmJ2X60fT7LICQ/zxljGutVHBFMhCEHM8syJCRU5W
+        AsMY8h654fyiprAEQXGMOeyLQ4ew55yQ/GU8VwPxRUMYUjWFQ1RPDBXwylkGCMFecMGXn0UKAaPA26iY
+        84TQ5UuRUIlpHomWaCwrwVtiTWgYo/ep8SQYthOcI0+rPO9zFA3glZWMgSFe7EakN3jJu2CPlxNO8pry
+        aOX857hSYrIjXidEVsK8zA1zGBigHPGCSxjjyc4JI3PWXXFLEV/MmViJ13Dxk42QqL4qJDyXw6ewhmIM
+        OSzsM+IgOSF8fhH3295AiQQPubwr1qMSOIc9nIxNeekvlkjc4YOOlaAkvoDw8ALO4pSNU5WbgdK/IIk5
+        wGsMxhykP8Tq5Skk5IKkumJsCDDC2iGdLS/PQUI46G6qi5K1McJCR9MjKXdVBVNIUhdDnv/q5P6sP/6D
+        hMRTvuP/Rbdh2/wAUMreAJsn7YsAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="tabSelection.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

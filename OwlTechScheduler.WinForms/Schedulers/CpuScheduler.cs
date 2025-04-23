@@ -418,6 +418,13 @@ namespace OwlTechScheduler.WinForms.Schedulers
         {
             this.txtCodeInput.Clear();
         }
+        private void btnAdvancedScheduler_Click(object sender, EventArgs e)
+        {
+            this.tabSelection.SelectTab(advancedSchedulerTab);
+            this.sidePanel.Height = btnAdvancedScheduler.Height;
+            this.sidePanel.Top = btnAdvancedScheduler.Top;
+        }
+
         
         private void DisplayResults(List<Process> processes)
         {
