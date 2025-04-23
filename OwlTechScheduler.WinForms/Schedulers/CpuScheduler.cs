@@ -69,10 +69,10 @@ namespace OwlTechScheduler.WinForms.Schedulers
 
         private void btnSRTF_Click(object sender, EventArgs e)
         {
-            if (txtProcess.Text != "")
+            if (txtAdvancedProcess.Text != "")
             {
                 int count;
-                if (int.TryParse(txtProcess.Text, out count))
+                if (int.TryParse(txtAdvancedProcess.Text, out count))
                 {
                     var processes = GenerateSampleProcesses(count);
                     var result = SrtfScheduler.Run(processes);
@@ -87,13 +87,13 @@ namespace OwlTechScheduler.WinForms.Schedulers
 
         private void btnMLFQ_Click(object sender, EventArgs e)
         {
-            if (txtProcess.Text != "")
+            if (txtAdvancedProcess.Text != "")
             {
                 int count;
-                if (int.TryParse(txtProcess.Text, out count))
+                if (int.TryParse(txtAdvancedProcess.Text, out count))
                 {
                     var processes = GenerateSampleProcesses(count);
-                    var result = MlfqScheduler.Run(processes);
+                    var result = SrtfScheduler.Run(processes);
                     DisplayResults(result);
                 }
                 else
@@ -327,7 +327,7 @@ namespace OwlTechScheduler.WinForms.Schedulers
         private void btnProductCode_Click(object sender, EventArgs e)
         {
             //this.dashBoardTab.Show();
-            this.tabSelection.SelectTab(2);
+            this.tabSelection.SelectTab(3);
             this.sidePanel.Height = btnProductCode.Height;
             this.sidePanel.Top = btnProductCode.Top;
             
@@ -425,10 +425,11 @@ namespace OwlTechScheduler.WinForms.Schedulers
             this.sidePanel.Top = btnAdvancedScheduler.Top;
         }
 
-        
+
+
         private void DisplayResults(List<Process> processes)
         {
-            lvResults.Clear(); // This removes all previous columns AND items
+            lvResults.Items.Clear(); // Only clear data, not structure
             lvResults.View = View.Details;
             lvResults.GridLines = true;
             lvResults.FullRowSelect = true;
@@ -442,6 +443,11 @@ namespace OwlTechScheduler.WinForms.Schedulers
             lvResults.Columns.Add("Waiting", 60);
             lvResults.Columns.Add("Turnaround", 80);
 
+            double totalWT = 0;
+            double totalTAT = 0;
+            int totalTime = processes.Max(p => p.CompletionTime);
+            int totalProcesses = processes.Count;
+
             foreach (var p in processes.OrderBy(p => p.Id))
             {
                 var row = new ListViewItem(p.Id.ToString());
@@ -453,8 +459,26 @@ namespace OwlTechScheduler.WinForms.Schedulers
                 row.SubItems.Add(p.TurnaroundTime.ToString());
 
                 lvResults.Items.Add(row);
+
+                totalWT += p.WaitingTime;
+                totalTAT += p.TurnaroundTime;
             }
+
+            double avgWT = totalWT / totalProcesses;
+            double avgTAT = totalTAT / totalProcesses;
+            double throughput = (double)totalProcesses / totalTime;
+
+            // Show metrics in a popup
+            MessageBox.Show(
+                $"Average Waiting Time (AWT): {avgWT:F2}\n" +
+                $"Average Turnaround Time (ATT): {avgTAT:F2}\n" +
+                $"Throughput: {throughput:F2} processes/unit time",
+                "Performance Summary",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
+
 
     }
 }
