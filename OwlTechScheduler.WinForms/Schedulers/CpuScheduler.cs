@@ -445,7 +445,9 @@ namespace OwlTechScheduler.WinForms.Schedulers
 
             double totalWT = 0;
             double totalTAT = 0;
-            int totalTime = processes.Max(p => p.CompletionTime);
+            int firstArrival = processes.Min(p => p.ArrivalTime); // might be 0
+            int lastCompletion = processes.Max(p => p.CompletionTime);
+            int totalTime = lastCompletion - firstArrival;
             int totalProcesses = processes.Count;
 
             foreach (var p in processes.OrderBy(p => p.Id))
@@ -467,12 +469,17 @@ namespace OwlTechScheduler.WinForms.Schedulers
             double avgWT = totalWT / totalProcesses;
             double avgTAT = totalTAT / totalProcesses;
             double throughput = (double)totalProcesses / totalTime;
+            double totalBurstTime = processes.Sum(p => p.BurstTime);
+            double cpuUtilization = (totalBurstTime / totalTime) * 100;
+            
+            
 
             // Show metrics in a popup
             MessageBox.Show(
                 $"Average Waiting Time (AWT): {avgWT:F2}\n" +
                 $"Average Turnaround Time (ATT): {avgTAT:F2}\n" +
-                $"Throughput: {throughput:F2} processes/unit time",
+                $"Throughput: {throughput:F2} processes/unit time\n" +
+                $"CPU Utilization: {cpuUtilization:F2}%",
                 "Performance Summary",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information

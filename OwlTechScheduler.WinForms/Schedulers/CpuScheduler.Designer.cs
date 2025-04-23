@@ -32,12 +32,12 @@ namespace OwlTechScheduler.WinForms.Schedulers
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CpuScheduler));
             this.panel1 = new System.Windows.Forms.Panel();
             this.sidePanel = new System.Windows.Forms.Panel();
-            this.btnProductCode = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCpuScheduler = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDashBoard = new System.Windows.Forms.Button();
             this.btnAdvancedScheduler = new System.Windows.Forms.Button();
+            this.btnProductCode = new System.Windows.Forms.Button();
             this.tabSelection = new System.Windows.Forms.TabControl();
             this.dashBoardTab = new System.Windows.Forms.TabPage();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -57,18 +57,18 @@ namespace OwlTechScheduler.WinForms.Schedulers
             this.btnFCFS = new System.Windows.Forms.Button();
             this.txtProcess = new System.Windows.Forms.TextBox();
             this.labelProcess = new System.Windows.Forms.Label();
-            this.productTab = new System.Windows.Forms.TabPage();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnQrcode = new System.Windows.Forms.Button();
-            this.txtCodeInput = new System.Windows.Forms.TextBox();
-            this.pictureBoxCodeOutput = new System.Windows.Forms.PictureBox();
-            this.btnBarcode = new System.Windows.Forms.Button();
             this.advancedSchedulerTab = new System.Windows.Forms.TabPage();
             this.btnSRTF = new System.Windows.Forms.Button();
             this.btnMLFQ = new System.Windows.Forms.Button();
             this.lvResults = new System.Windows.Forms.ListView();
             this.txtAdvancedProcess = new System.Windows.Forms.TextBox();
             this.labelAdvancedProcess = new System.Windows.Forms.Label();
+            this.productTab = new System.Windows.Forms.TabPage();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnQrcode = new System.Windows.Forms.Button();
+            this.txtCodeInput = new System.Windows.Forms.TextBox();
+            this.pictureBoxCodeOutput = new System.Windows.Forms.PictureBox();
+            this.btnBarcode = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,9 +78,9 @@ namespace OwlTechScheduler.WinForms.Schedulers
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.cpuSchedulerTab.SuspendLayout();
+            this.advancedSchedulerTab.SuspendLayout();
             this.productTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCodeOutput)).BeginInit();
-            this.advancedSchedulerTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -106,24 +106,6 @@ namespace OwlTechScheduler.WinForms.Schedulers
             this.sidePanel.Name = "sidePanel";
             this.sidePanel.Size = new System.Drawing.Size(10, 45);
             this.sidePanel.TabIndex = 4;
-            // 
-            // btnProductCode
-            // 
-            this.btnProductCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnProductCode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductCode.FlatAppearance.BorderSize = 0;
-            this.btnProductCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProductCode.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProductCode.Image = ((System.Drawing.Image)(resources.GetObject("btnProductCode.Image")));
-            this.btnProductCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProductCode.Location = new System.Drawing.Point(9, 304);
-            this.btnProductCode.Name = "btnProductCode";
-            this.btnProductCode.Size = new System.Drawing.Size(150, 40);
-            this.btnProductCode.TabIndex = 4;
-            this.btnProductCode.Text = "    Code Generator";
-            this.btnProductCode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProductCode.UseVisualStyleBackColor = true;
-            this.btnProductCode.Click += new System.EventHandler(this.btnProductCode_Click);
             // 
             // label1
             // 
@@ -202,6 +184,24 @@ namespace OwlTechScheduler.WinForms.Schedulers
             this.btnAdvancedScheduler.UseVisualStyleBackColor = true;
             this.btnAdvancedScheduler.Click += new System.EventHandler(this.btnAdvancedScheduler_Click);
             // 
+            // btnProductCode
+            // 
+            this.btnProductCode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnProductCode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProductCode.FlatAppearance.BorderSize = 0;
+            this.btnProductCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductCode.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductCode.Image = ((System.Drawing.Image)(resources.GetObject("btnProductCode.Image")));
+            this.btnProductCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProductCode.Location = new System.Drawing.Point(9, 304);
+            this.btnProductCode.Name = "btnProductCode";
+            this.btnProductCode.Size = new System.Drawing.Size(150, 40);
+            this.btnProductCode.TabIndex = 4;
+            this.btnProductCode.Text = "    Code Generator";
+            this.btnProductCode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProductCode.UseVisualStyleBackColor = true;
+            this.btnProductCode.Click += new System.EventHandler(this.btnProductCode_Click);
+            // 
             // tabSelection
             // 
             this.tabSelection.Controls.Add(this.dashBoardTab);
@@ -261,8 +261,9 @@ namespace OwlTechScheduler.WinForms.Schedulers
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(10, 262);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 15);
+            this.label3.Size = new System.Drawing.Size(94, 15);
             this.label3.TabIndex = 8;
+            this.label3.Text = "Memory Usage:";
             // 
             // progressBar1
             // 
@@ -277,8 +278,9 @@ namespace OwlTechScheduler.WinForms.Schedulers
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(7, 223);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 15);
+            this.label2.Size = new System.Drawing.Size(100, 15);
             this.label2.TabIndex = 6;
+            this.label2.Text = "CPU Utilization:";
             // 
             // btnExit
             // 
@@ -460,6 +462,79 @@ namespace OwlTechScheduler.WinForms.Schedulers
             this.labelProcess.Size = new System.Drawing.Size(0, 15);
             this.labelProcess.TabIndex = 6;
             // 
+            // advancedSchedulerTab
+            // 
+            this.advancedSchedulerTab.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.advancedSchedulerTab.Controls.Add(this.btnSRTF);
+            this.advancedSchedulerTab.Controls.Add(this.btnMLFQ);
+            this.advancedSchedulerTab.Controls.Add(this.lvResults);
+            this.advancedSchedulerTab.Controls.Add(this.txtAdvancedProcess);
+            this.advancedSchedulerTab.Controls.Add(this.labelAdvancedProcess);
+            this.advancedSchedulerTab.Location = new System.Drawing.Point(4, 22);
+            this.advancedSchedulerTab.Name = "advancedSchedulerTab";
+            this.advancedSchedulerTab.Size = new System.Drawing.Size(501, 413);
+            this.advancedSchedulerTab.TabIndex = 3;
+            this.advancedSchedulerTab.Text = "Advanced";
+            // 
+            // btnSRTF
+            // 
+            this.btnSRTF.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSRTF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSRTF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
+            this.btnSRTF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSRTF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSRTF.Location = new System.Drawing.Point(41, 115);
+            this.btnSRTF.Name = "btnSRTF";
+            this.btnSRTF.Size = new System.Drawing.Size(106, 45);
+            this.btnSRTF.TabIndex = 13;
+            this.btnSRTF.Text = "SRTF";
+            this.btnSRTF.UseVisualStyleBackColor = false;
+            this.btnSRTF.Click += new System.EventHandler(this.btnSRTF_Click);
+            // 
+            // btnMLFQ
+            // 
+            this.btnMLFQ.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.btnMLFQ.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMLFQ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
+            this.btnMLFQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMLFQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.btnMLFQ.Location = new System.Drawing.Point(316, 115);
+            this.btnMLFQ.Name = "btnMLFQ";
+            this.btnMLFQ.Size = new System.Drawing.Size(107, 45);
+            this.btnMLFQ.TabIndex = 14;
+            this.btnMLFQ.Text = "MLFQ";
+            this.btnMLFQ.UseVisualStyleBackColor = false;
+            this.btnMLFQ.Click += new System.EventHandler(this.btnMLFQ_Click);
+            // 
+            // lvResults
+            // 
+            this.lvResults.FullRowSelect = true;
+            this.lvResults.GridLines = true;
+            this.lvResults.HideSelection = false;
+            this.lvResults.Location = new System.Drawing.Point(3, 210);
+            this.lvResults.Name = "lvResults";
+            this.lvResults.Size = new System.Drawing.Size(495, 194);
+            this.lvResults.TabIndex = 15;
+            this.lvResults.UseCompatibleStateImageBehavior = false;
+            this.lvResults.View = System.Windows.Forms.View.Details;
+            // 
+            // txtAdvancedProcess
+            // 
+            this.txtAdvancedProcess.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtAdvancedProcess.Location = new System.Drawing.Point(236, 49);
+            this.txtAdvancedProcess.Name = "txtAdvancedProcess";
+            this.txtAdvancedProcess.Size = new System.Drawing.Size(100, 23);
+            this.txtAdvancedProcess.TabIndex = 16;
+            this.txtAdvancedProcess.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labelAdvancedProcess
+            // 
+            this.labelAdvancedProcess.Location = new System.Drawing.Point(90, 53);
+            this.labelAdvancedProcess.Name = "labelAdvancedProcess";
+            this.labelAdvancedProcess.Size = new System.Drawing.Size(140, 20);
+            this.labelAdvancedProcess.TabIndex = 17;
+            this.labelAdvancedProcess.Text = "Number of Processes:";
+            // 
             // productTab
             // 
             this.productTab.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -539,86 +614,6 @@ namespace OwlTechScheduler.WinForms.Schedulers
             this.btnBarcode.UseVisualStyleBackColor = false;
             this.btnBarcode.Click += new System.EventHandler(this.btnBarcode_Click);
             // 
-            // advancedSchedulerTab
-            // 
-            this.advancedSchedulerTab.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.advancedSchedulerTab.Controls.Add(this.btnSRTF);
-            this.advancedSchedulerTab.Controls.Add(this.btnMLFQ);
-            this.advancedSchedulerTab.Controls.Add(this.lvResults);
-            this.advancedSchedulerTab.Controls.Add(this.txtAdvancedProcess);
-            this.advancedSchedulerTab.Controls.Add(this.labelAdvancedProcess);
-            this.advancedSchedulerTab.Location = new System.Drawing.Point(4, 22);
-            this.advancedSchedulerTab.Name = "advancedSchedulerTab";
-            this.advancedSchedulerTab.Size = new System.Drawing.Size(501, 413);
-            this.advancedSchedulerTab.TabIndex = 3;
-            this.advancedSchedulerTab.Text = "Advanced";
-            // 
-            // btnSRTF
-            // 
-            this.btnSRTF.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.btnSRTF.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSRTF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
-            this.btnSRTF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSRTF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnSRTF.Location = new System.Drawing.Point(41, 115);
-            this.btnSRTF.Name = "btnSRTF";
-            this.btnSRTF.Size = new System.Drawing.Size(106, 45);
-            this.btnSRTF.TabIndex = 13;
-            this.btnSRTF.Text = "SRTF";
-            this.btnSRTF.UseVisualStyleBackColor = false;
-            this.btnSRTF.Click += new System.EventHandler(this.btnSRTF_Click);
-            // 
-            // btnMLFQ
-            // 
-            this.btnMLFQ.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.btnMLFQ.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMLFQ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleGreen;
-            this.btnMLFQ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMLFQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.btnMLFQ.Location = new System.Drawing.Point(316, 115);
-            this.btnMLFQ.Name = "btnMLFQ";
-            this.btnMLFQ.Size = new System.Drawing.Size(107, 45);
-            this.btnMLFQ.TabIndex = 14;
-            this.btnMLFQ.Text = "MLFQ";
-            this.btnMLFQ.UseVisualStyleBackColor = false;
-            this.btnMLFQ.Click += new System.EventHandler(this.btnMLFQ_Click);
-            // 
-            // lvResults
-            // 
-            this.lvResults.FullRowSelect = true;
-            this.lvResults.GridLines = true;
-            this.lvResults.HideSelection = false;
-            this.lvResults.Location = new System.Drawing.Point(3, 210);
-            this.lvResults.Name = "lvResults";
-            this.lvResults.Size = new System.Drawing.Size(495, 194);
-            this.lvResults.TabIndex = 15;
-            this.lvResults.UseCompatibleStateImageBehavior = false;
-            this.lvResults.View = System.Windows.Forms.View.Details;
-            this.lvResults.Columns.Add("PID", 50);
-            this.lvResults.Columns.Add("Arrival", 60);
-            this.lvResults.Columns.Add("Burst", 60);
-            this.lvResults.Columns.Add("Start", 60);
-            this.lvResults.Columns.Add("Complete", 80);
-            this.lvResults.Columns.Add("Waiting", 60);
-            this.lvResults.Columns.Add("Turnaround", 80);
-            // 
-            // txtAdvancedProcess
-            // 
-            this.txtAdvancedProcess.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtAdvancedProcess.Location = new System.Drawing.Point(236, 49);
-            this.txtAdvancedProcess.Name = "txtAdvancedProcess";
-            this.txtAdvancedProcess.Size = new System.Drawing.Size(100, 23);
-            this.txtAdvancedProcess.TabIndex = 16;
-            this.txtAdvancedProcess.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // labelAdvancedProcess
-            // 
-            this.labelAdvancedProcess.Location = new System.Drawing.Point(90, 53);
-            this.labelAdvancedProcess.Name = "labelAdvancedProcess";
-            this.labelAdvancedProcess.Size = new System.Drawing.Size(140, 20);
-            this.labelAdvancedProcess.TabIndex = 17;
-            this.labelAdvancedProcess.Text = "Number of Processes:";
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -649,11 +644,11 @@ namespace OwlTechScheduler.WinForms.Schedulers
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.cpuSchedulerTab.ResumeLayout(false);
             this.cpuSchedulerTab.PerformLayout();
+            this.advancedSchedulerTab.ResumeLayout(false);
+            this.advancedSchedulerTab.PerformLayout();
             this.productTab.ResumeLayout(false);
             this.productTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCodeOutput)).EndInit();
-            this.advancedSchedulerTab.ResumeLayout(false);
-            this.advancedSchedulerTab.PerformLayout();
             this.ResumeLayout(false);
         }
 
