@@ -4,7 +4,6 @@
 # 📘 OwlTechSchedulerWinForms (Windows Forms Starter Based Project)
 (`OwlTechSchedulerWinForms/README.md`)
 
-```markdown
 # OwlTechSchedulerWinForms
 
 ## Overview
