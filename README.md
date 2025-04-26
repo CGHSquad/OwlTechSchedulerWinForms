@@ -41,3 +41,8 @@ This project extends the original Windows Forms application by adding advanced s
    ```bash
    git clone https://github.com/CGHSquad/OwlTechSchedulerWinForms.git
    cd OwlTechSchedulerWinForms
+
+## License
+
+This project is licensed under the terms of the [MIT License](https://choosealicense.com/licenses/mit/).
+
